@@ -10,8 +10,8 @@
     <header class="hero">
       <h1>マーダーミステリー録音ダイジェスト</h1>
       <p>
-        録音ファイルをもとに、盛り上がったシーンの「小説ダイジェスト」と、
-        セリフ前後の再生を1つの画面で確認できます。
+        録音ファイルをもとに、盛り上がったシーンの「小説ダイジェスト」を生成し、
+        ダイジェスト内のセリフをクリックして前後音声を再生できます。
       </p>
     </header>
 
@@ -29,17 +29,14 @@
       </section>
 
       <section class="card audio-card">
-        <h2>2. 録音再生（サンプル）</h2>
+        <h2>2. 録音再生（GitHub上のmp3）</h2>
         <p>
-          実運用ではアップロードした録音を再生します。ここではセリフクリック挙動確認用にサンプル音源を使います。
+          GitHubにアップロードしたmp3を再生します。現在は
+          <code>recording.mp3</code>
+          を参照しています。
         </p>
-        <audio
-          id="audioPlayer"
-          controls
-          preload="metadata"
-          src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-        ></audio>
-        <p id="seekStatus" class="seek-status">セリフをクリックすると該当時刻へ移動します。</p>
+        <audio id="audioPlayer" controls preload="metadata" src="./recording.mp3"></audio>
+        <p id="seekStatus" class="seek-status">ダイジェスト内のセリフをクリックすると該当時刻へ移動します。</p>
       </section>
 
       <section class="card digest-card">
