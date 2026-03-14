@@ -1,6 +1,7 @@
 :root {
   color-scheme: dark;
   --bg: #0f1226;
+  --panel: #1b2148;
   --panel-border: #3c478f;
   --accent: #8aa1ff;
   --accent-2: #4dd0e1;
@@ -66,7 +67,8 @@ body {
 
 .upload-card,
 .audio-card,
-.digest-card {
+.digest-card,
+.lines-card {
   grid-column: span 2;
 }
 
@@ -111,39 +113,54 @@ audio {
   font-size: 0.95rem;
 }
 
-.digest-help {
-  margin-top: 0;
-  margin-bottom: 0.8rem;
-  font-size: 0.9rem;
+#digestContainer {
+  display: grid;
+  gap: 0.8rem;
 }
 
 .paragraph {
   margin: 0;
-  line-height: 1.9;
+  line-height: 1.8;
   color: #e5eaff;
-  white-space: pre-wrap;
 }
 
-.inline-quote {
-  display: inline;
-  font: inherit;
-  color: #7adfff;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px dashed #7adfff;
+#quoteList {
+  list-style: none;
+  margin: 0;
   padding: 0;
-  cursor: pointer;
+  display: grid;
+  gap: 0.6rem;
 }
 
-.inline-quote:hover {
-  color: #c0f3ff;
-  border-bottom-color: #c0f3ff;
+.quote-btn {
+  width: 100%;
+  text-align: left;
+  border: 1px solid #6f81e8;
+  border-radius: 10px;
+  background: rgba(20, 26, 61, 0.86);
+  color: var(--text);
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.quote-btn:hover {
+  transform: translateY(-1px);
+  border-color: #b7c5ff;
+}
+
+.quote-meta {
+  display: block;
+  color: var(--accent-2);
+  font-size: 0.82rem;
+  margin-bottom: 0.15rem;
 }
 
 @media (max-width: 880px) {
   .upload-card,
   .audio-card,
-  .digest-card {
+  .digest-card,
+  .lines-card {
     grid-column: span 1;
   }
 }
