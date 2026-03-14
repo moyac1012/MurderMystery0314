@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>マダミス録音ダイジェスト生成</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>マーダーミステリー録音ダイジェスト</h1>
+      <p>
+        録音ファイルをもとに、盛り上がったシーンの「小説ダイジェスト」と、
+        セリフ前後の再生を1つの画面で確認できます。
+      </p>
+    </header>
+
+    <main class="layout">
+      <section class="card upload-card">
+        <h2>1. 録音アップロード（ダミーUI）</h2>
+        <p>
+          ※ 現在はデザインのみです。将来的に音声解析・感情分析・発話区間推定を接続します。
+        </p>
+        <label class="file-input">
+          <span>録音ファイルを選択</span>
+          <input type="file" disabled />
+        </label>
+        <button class="primary" disabled>解析してダイジェストを生成</button>
+      </section>
+
+      <section class="card audio-card">
+        <h2>2. 録音再生（サンプル）</h2>
+        <p>
+          実運用ではアップロードした録音を再生します。ここではセリフクリック挙動確認用にサンプル音源を使います。
+        </p>
+        <audio
+          id="audioPlayer"
+          controls
+          preload="metadata"
+          src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        ></audio>
+        <p id="seekStatus" class="seek-status">セリフをクリックすると該当時刻へ移動します。</p>
+      </section>
+
+      <section class="card digest-card">
+        <h2>3. 生成された小説ダイジェスト（固定データ）</h2>
+        <article id="digestContainer"></article>
+      </section>
+
+      <section class="card lines-card">
+        <h2>4. セリフ一覧（クリックで前後再生）</h2>
+        <p>
+          クリックすると「セリフが出た時刻の5秒前」へシークし、前後の流れを聞けるようにします。
+        </p>
+        <ul id="quoteList"></ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
