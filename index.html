@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>マダミス録音ダイジェスト生成</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>マーダーミステリー録音ダイジェスト</h1>
+      <p>
+        録音ファイルをもとに、盛り上がったシーンの「小説ダイジェスト」を生成し、
+        ダイジェスト内のセリフをクリックして前後音声を再生できます。
+      </p>
+    </header>
+
+    <main class="layout">
+      <section class="card upload-card">
+        <h2>1. 録音アップロード（ダミーUI）</h2>
+        <p>
+          ※ 現在はデザインのみです。将来的に音声解析・感情分析・発話区間推定を接続します。
+        </p>
+        <label class="file-input">
+          <span>録音ファイルを選択</span>
+          <input type="file" disabled />
+        </label>
+        <button class="primary" disabled>解析してダイジェストを生成</button>
+      </section>
+
+      <section class="card audio-card">
+        <h2>2. 録音再生（GitHub上のmp3）</h2>
+        <p>
+          GitHubにアップロードしたmp3を再生します。現在は
+          <code>recording.mp3</code>
+          を参照しています。
+        </p>
+        <audio id="audioPlayer" controls preload="metadata" src="./recording.mp3"></audio>
+        <p id="seekStatus" class="seek-status">ダイジェスト内のセリフをクリックすると該当時刻へ移動します。</p>
+      </section>
+
+      <section class="card digest-card">
+        <h2>3. 生成された小説ダイジェスト（固定データ）</h2>
+        <p class="digest-help">青色のセリフ部分はクリックできます。</p>
+        <article id="digestContainer"></article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
