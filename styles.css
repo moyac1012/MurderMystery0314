@@ -1,0 +1,149 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f1226;
+  --panel-border: #3c478f;
+  --accent: #8aa1ff;
+  --accent-2: #4dd0e1;
+  --text: #f4f6ff;
+  --muted: #bcc5ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+  background: radial-gradient(circle at top, #1d265f 0%, var(--bg) 55%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.hero {
+  padding: 3rem 1.2rem 1.5rem;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.hero p {
+  margin: 0.8rem auto 0;
+  max-width: 760px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.layout {
+  width: min(1100px, 92vw);
+  margin: 0 auto 2rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.card {
+  background: linear-gradient(160deg, rgba(40, 57, 138, 0.5), rgba(27, 33, 72, 0.95));
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 1.1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.24);
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
+}
+
+.card p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.upload-card,
+.audio-card,
+.digest-card {
+  grid-column: span 2;
+}
+
+.file-input {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2a376e;
+  border: 1px dashed #90a7ff;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  margin-right: 0.6rem;
+}
+
+.file-input input {
+  display: none;
+}
+
+.primary {
+  border: 0;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #03122e;
+  font-weight: bold;
+}
+
+.primary:disabled,
+.file-input:has(input:disabled) {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+audio {
+  width: 100%;
+  margin-top: 0.8rem;
+}
+
+.seek-status {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.digest-help {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.paragraph {
+  margin: 0;
+  line-height: 1.9;
+  color: #e5eaff;
+  white-space: pre-wrap;
+}
+
+.inline-quote {
+  display: inline;
+  font: inherit;
+  color: #7adfff;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px dashed #7adfff;
+  padding: 0;
+  cursor: pointer;
+}
+
+.inline-quote:hover {
+  color: #c0f3ff;
+  border-bottom-color: #c0f3ff;
+}
+
+@media (max-width: 880px) {
+  .upload-card,
+  .audio-card,
+  .digest-card {
+    grid-column: span 1;
+  }
+}
